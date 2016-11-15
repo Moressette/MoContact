@@ -1,0 +1,91 @@
+.header-color{
+    position: relative;
+    padding: 30px 15px;
+    color: #2f4154;
+    height: 150px;
+    text-shadow: 0 1px 0 rgba(0,0,0,.1);
+    background-color: #2f4154;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#1f2b38),to(#2f4154));
+    background-image: -webkit-linear-gradient(top,#1f2b38 0,#2f4154 100%);
+    background-image: -o-linear-gradient(top,#1f2b38 0,#2f4154 100%);
+    background-image: linear-gradient(to bottom,#1f2b38 0,##2f4154 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1f2b38', endColorstr='#2f4154', GradientType=0);
+    background-repeat: repeat-x;
+}
+
+.footer{
+    position: fixed;
+    border-top:1px solid #e5e5e5;
+    padding-top:5px;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+.admin-footer{
+    position: relative;
+    border-top:1px solid #e5e5e5;
+    padding-top:5px;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+.login-control{
+    position: relative;
+    text-align: center;
+    margin:0 auto;
+    width:500px;
+    margin-top:50px;
+    margin-bottom: 200px;
+}
+
+.modifyuser-control{
+    position: relative;
+    text-align: center;
+    margin:0 auto;
+    width:500px;
+    margin-top:20px;
+    margin-bottom: 200px;
+}
+
+.modifyuser-control label{
+    font-family:微软雅黑;
+    font-size:15px;
+}
+
+.newcontactform-control{
+    vertical-align: center;
+    font-family:微软雅黑;
+    margin-top: 100px;
+    margin-bottom: 200px;
+}
+
+
+.newcontactform-control .col-sm-3{
+    padding-top: 6px;
+}
+
+.newcontactform-control .col-sm-1{
+    padding-top: 6px;
+}
+
+.code{
+     background:url(code_bg.jpg);
+     font-family:Arial;
+     font-style:italic;
+     color:#48c9b0;
+     font-size:20px;
+     border:0;
+     padding:2px 3px;
+     margin-left:50px;
+     letter-spacing:3px;
+     font-weight:bolder;
+     float:left;
+     cursor:pointer;
+     width:150px;
+     height:60px;
+     line-height:60px;
+     text-align:center;
+     vertical-align:middle;
+    }
