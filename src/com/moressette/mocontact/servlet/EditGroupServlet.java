@@ -50,7 +50,13 @@ public class EditGroupServlet extends HttpServlet {
 		}
 		/*Get form info*/
 		String gname = request.getParameter("groupname");
+		if(gname.equals("")){
+			out.println("<script>alert('群组名不能为空');window.location.href=('ManageGroupsServlet')</script>");
+		}
 		String gid = request.getParameter("gid");
+		if(Integer.parseInt(gid) == 0){
+			out.println("<script>alert('无法编辑该群组');window.location.href=('ManageGroupsServlet')</script>");
+		}
 		/*Get Reverse MAP */
 		Map<String,Integer> userGroupsR = (Map<String,Integer>)request.getSession().getAttribute("userGroupsR");
 		/*Validate gname*/

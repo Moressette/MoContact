@@ -53,11 +53,11 @@ public class ManageGroupsServlet extends HttpServlet {
 		int uid = Integer.parseInt(request.getSession().getAttribute("uid").toString());
 		//System.out.println("uid="+uid);
 		ContactDao contactdao = new ContactDaoimpl();
-		List<Contact> contactlist = contactdao.findAllContacts(uid);
-		if (contactlist.isEmpty()){
-			out.print("<script>window.location.href=('hello.jsp');</script>");
-		}
-		request.getSession().setAttribute("contactlist", contactlist); //set contactlist to session
+//		List<Contact> contactlist = contactdao.findAllContacts(uid);
+//		if (contactlist.isEmpty()){
+//			out.print("<script>window.location.href=('hello.jsp');</script>");
+//		}
+//		request.getSession().setAttribute("contactlist", contactlist); //set contactlist to session
 		/**
 		 * find all groups
 		 */

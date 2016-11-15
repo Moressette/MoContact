@@ -39,6 +39,9 @@ public class DeleteGroupServlet extends HttpServlet {
 			out.println("<script type='text/javascript'>alert('您还没有登录，请先登录');window.location.href='login.jsp'; </script>");
 		}
 		int gid = Integer.parseInt(request.getParameter("gid"));
+		if(gid == 0){
+			out.println("<script>alert('无法删除该分组');window.location.href=('ManageGroupsServlet')</script>");
+		}
 		int uid = Integer.parseInt(request.getSession().getAttribute("uid").toString()); 
 		ContactDao contactdao = new ContactDaoimpl();
 		boolean flag = contactdao.hasNoContactByGidAndUid(gid,uid);

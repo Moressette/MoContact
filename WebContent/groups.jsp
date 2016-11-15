@@ -49,13 +49,13 @@ if((String)session.getAttribute("username") == null){
 	<!-- Navbar -->
     <div class="collapse navbar-default navbar-collapse" id="navbar-collapse-5">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="MainServlet" style="font-family:微软雅黑;font-weight:400;font-size:18px;">所有联系人</a></li>
+        <li><a href="MainServlet" style="font-family:微软雅黑;font-weight:400;font-size:18px;">所有联系人</a></li>
         <li><a href="newcontact.jsp" style="font-family:微软雅黑;font-weight:400;font-size:18px;">新建联系人</a></li>
         <!-- Groups Button -->
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-family:微软雅黑;font-weight:400;font-size:18px;">查看群组<b class="caret"></b></a>
           <ul class="dropdown-menu" style="width:100px;">
-			<li><a href="ManageGroupsServlet">群组管理</a></li>
+			<li class="active"><a href="ManageGroupsServlet">群组管理</a></li>
             <li class="divider"></li>
             <c:forEach var="item" items="${userGroups}"> 
                 <li><a href="ShowSingleGroupServlet?gid=${item.key}">${item.value}</a></li>

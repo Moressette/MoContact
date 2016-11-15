@@ -49,22 +49,27 @@ public class AddGroupServlet extends HttpServlet {
 		}
 		/*Get form info*/
 		String gname = request.getParameter("groupname");
-		/*Get uid*/
-		int uid = Integer.parseInt(request.getSession().getAttribute("uid").toString());
-		/*Get Reverse MAP */
-		Map<String,Integer> userGroupsR = (Map<String,Integer>)request.getSession().getAttribute("userGroupsR");
-		/*Validate gname*/
-		boolean flag=userGroupsR.containsKey(gname);
-		if(flag==false){
-		    ContactDao contactdao = new ContactDaoimpl();
-		    boolean result = contactdao.addGroups(gname, uid);
-		    if(result==true){
-				response.sendRedirect("ManageGroupsServlet");
-		    }else{
-		    	out.println("<script>alert('修改失败');window.location.href=('ManageGroupsServlet')</script>");
-		    }
+		System.out.println("gname="+gname);
+		if(gname.equals("")){
+			out.println("<script>alert('群组名不能为空');window.location.href=('ManageGroupsServlet')</script>");
 		}else{
-	    	out.println("<script>alert('群组已存在');window.location.href=('ManageGroupsServlet')</script>");
+			/*Get uid*/
+			int uid = Integer.parseInt(request.getSession().getAttribute("uid").toString());
+			/*Get Reverse MAP */
+			Map<String,Integer> userGroupsR = (Map<String,Integer>)request.getSession().getAttribute("userGroupsR");
+			/*Validate gname*/
+			boolean flag=userGroupsR.containsKey(gname);
+			if(flag==false){
+			    ContactDao contactdao = new ContactDaoimpl();
+			    boolean result = contactdao.addGroups(gname, uid);
+			    if(result==true){
+					response.sendRedirect("ManageGroupsServlet");
+			    }else{
+			    	out.println("<script>alert('修改失败');window.location.href=('ManageGroupsServlet')</script>");
+			    }
+			}else{
+		    	out.println("<script>alert('群组已存在');window.location.href=('ManageGroupsServlet')</script>");
+			}
 		}
 	}
 
