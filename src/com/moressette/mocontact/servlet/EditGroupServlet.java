@@ -52,25 +52,27 @@ public class EditGroupServlet extends HttpServlet {
 		String gname = request.getParameter("groupname");
 		if(gname.equals("")){
 			out.println("<script>alert('群组名不能为空');window.location.href=('ManageGroupsServlet')</script>");
-		}
-		String gid = request.getParameter("gid");
-		if(Integer.parseInt(gid) == 0){
-			out.println("<script>alert('无法编辑该群组');window.location.href=('ManageGroupsServlet')</script>");
-		}
-		/*Get Reverse MAP */
-		Map<String,Integer> userGroupsR = (Map<String,Integer>)request.getSession().getAttribute("userGroupsR");
-		/*Validate gname*/
-		boolean flag=userGroupsR.containsKey(gname);
-		if(flag==false){
-		    ContactDao contactdao = new ContactDaoimpl();
-		    boolean result = contactdao.editGroups(gname, gid);
-		    if(result==true){
-				response.sendRedirect("ManageGroupsServlet");
-		    }else{
-		    	out.println("<script>alert('修改失败');window.location.href=('ManageGroupsServlet')</script>");
-		    }
 		}else{
-	    	out.println("<script>alert('群组已存在');window.location.href=('ManageGroupsServlet')</script>");
+			String gid = request.getParameter("gid");
+			if(Integer.parseInt(gid) == 0){
+				out.println("<script>alert('无法编辑该群组');window.location.href=('ManageGroupsServlet')</script>");
+			}else{
+				/*Get Reverse MAP */
+				Map<String,Integer> userGroupsR = (Map<String,Integer>)request.getSession().getAttribute("userGroupsR");
+				/*Validate gname*/
+				boolean flag=userGroupsR.containsKey(gname);
+				if(flag==false){
+				    ContactDao contactdao = new ContactDaoimpl();
+				    boolean result = contactdao.editGroups(gname, gid);
+				    if(result==true){
+						response.sendRedirect("ManageGroupsServlet");
+				    }else{
+				    	out.println("<script>alert('修改失败');window.location.href=('ManageGroupsServlet')</script>");
+				    }
+				}else{
+			    	out.println("<script>alert('群组已存在');window.location.href=('ManageGroupsServlet')</script>");
+				}
+			}
 		}
 	}
 

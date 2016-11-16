@@ -26,7 +26,7 @@ public class ContactDaoimpl implements ContactDao {
 		String strSQL = "select contacts.cid,contacts.cname,contacts.csex,contacts.cphone,contacts.ctel,contacts.cemail,contacts.cqq,contacts.cwork,contacts.caddress,contacts.gid,groups.gname FROM contacts,groups WHERE contacts.uid=? AND contacts.gid=groups.gid";
 		Object[] params ={ uid };
 		ResultSet rs = sqlManager.execQuery(connection, strSQL, params);
-		//Log.out(strSQL, params);
+		Log.out(strSQL, params);
 		try{
 			while(rs.next()){
 				Contact contact = new Contact();

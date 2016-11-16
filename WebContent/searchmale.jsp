@@ -43,7 +43,7 @@ if((String)session.getAttribute("username") == null){
 	<!-- Navbar -->
     <div class="collapse navbar-default navbar-collapse" id="navbar-collapse-5">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="MainServlet" style="font-family:微软雅黑;font-weight:400;font-size:18px;">所有联系人</a></li>
+        <li><a href="MainServlet" style="font-family:微软雅黑;font-weight:400;font-size:18px;">所有联系人</a></li>
         <li><a href="newcontact.jsp" style="font-family:微软雅黑;font-weight:400;font-size:18px;">新建联系人</a></li>
         <!-- Groups Button -->
         <li class="dropdown">
@@ -61,8 +61,8 @@ if((String)session.getAttribute("username") == null){
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-family:微软雅黑;font-weight:400;font-size:18px;">性别筛选<b class="caret"></b></a>
           <ul class="dropdown-menu" style="width:100px;">
-			<li class="active"><a href="allmale.jsp">男</a></li>
-      		<li><a href="allfemale.jsp">女</a></li>
+			<li class="active"><a href="searchmale.jsp">男</a></li>
+      		<li><a href="searchfemale.jsp">女</a></li>
           </ul>
         </li>
         <!-- sex filter END -->
@@ -70,7 +70,7 @@ if((String)session.getAttribute("username") == null){
       <form class="navbar-form navbar-left" action="SearchContactServlet" method="post" role="search" id="searchform" onsubmit="return validate(this);">
         <div class="form-group">
           <div class="input-group">
-            <input class="form-control" id="search" name="search" type="search" placeholder="联系人搜索">
+            <input class="form-control" id="search" name="search" type="search" value="<%= session.getAttribute("searchInfo")%>" placeholder="联系人搜索">
             <span class="input-group-btn">
               <button type="submit" class="btn">
                 <span class="fui-search"></span>
